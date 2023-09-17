@@ -74,6 +74,7 @@ spec:
       action: publish:github
       input:
         allowedHosts: ["github.com"]
+        repoVisibility: public
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
 
