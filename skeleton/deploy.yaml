@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ${{values.artifact_id}}
+spec:
+  containers:
+    - name: ${{values.artifact_id}}
+      image: sahanan05/${{values.artifact_id}}:latest
+      ports:
+        - containerPort: 8080
