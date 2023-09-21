@@ -9,7 +9,7 @@ metadata:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
     gocd.org/pipelines: ${{values.artifact_id}}
-    backstage.io/kubernetes-namespace: default
+    backstage.io/kubernetes-id: ${{values.artifact_id}}
 spec:
   type: service
   providesApis:
