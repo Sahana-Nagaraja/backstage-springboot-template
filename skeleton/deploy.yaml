@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: ${{values.artifact_id}}
   labels:
+    app: ${{values.artifact_id}}
     backstage.io/kubernetes-id: ${{values.artifact_id}}
 spec:
   replicas: 3
@@ -14,9 +15,47 @@ spec:
       labels:
         app: ${{values.artifact_id}}
         backstage.io/kubernetes-id: ${{values.artifact_id}}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/actuator/prometheus"
     spec:
       containers:
         - name: ${{values.artifact_id}}
           image: sahanan05/${{values.artifact_id}}:latest
           ports:
             - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${{values.artifact_id}}
+  labels:
+    app: ${{values.artifact_id}}
+    backstage.io/kubernetes-id: ${{values.artifact_id}}
+spec:
+  ports:
+    - protocol: TCP
+      name: http-traffic
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: ${{values.artifact_id}}
+
+---
+
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ${{values.artifact_id}}-service-monitor
+  labels:
+    release: prometheus-operator
+spec:
+  selector:
+    matchLabels:
+      app: ${{values.artifact_id}}
+  endpoints:
+    - port: http-traffic
+      path: "/actuator/prometheus"
