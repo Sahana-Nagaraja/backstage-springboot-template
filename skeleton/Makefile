@@ -17,7 +17,7 @@ publish:
 
 deploy: docker_login
 	kubectl apply -f deploy.yaml
-	[[ -z "$(lsof -Pi :8080 -sTCP:LISTEN)" ]] && echo "Port in use"  || kubectl port-forward $(ARTIFACT_ID) 8080:8080
+	[[ -z "$(lsof -Pi :8080 -sTCP:LISTEN)" ]] && echo "Port in use"  || kubectl port-forward deployment/$(ARTIFACT_ID) 8080:8080
 
 delete:
 	kubectl delete -f deploy.yaml
