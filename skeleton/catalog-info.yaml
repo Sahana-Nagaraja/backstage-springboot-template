@@ -10,6 +10,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     gocd.org/pipelines: ${{values.artifact_id}}
     backstage.io/kubernetes-id: ${{values.artifact_id}}
+    grafana/dashboard-selector: ${{values.artifact_id}}
 spec:
   type: service
   providesApis:
