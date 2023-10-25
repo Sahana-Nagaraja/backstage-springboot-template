@@ -32,6 +32,10 @@ spec:
           title: Description
           type: string
           description: Help others understand what this website is for.
+        grafana_dashboard_embed_url:
+          title: Grafana Dashboard Embed URL
+          type: string
+          description: Grafana Dashboard URL to embed.
         owner:
           title: Owner
           type: string
@@ -64,6 +68,7 @@ spec:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
           artifact_id: ${{ parameters.component_id }}
+          grafana_dashboard_embed_url: ${{ parameters.grafana_dashboard_embed_url }}
           java_package_name: ${{ parameters.java_package_name }}
           owner: ${{ parameters.owner }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
