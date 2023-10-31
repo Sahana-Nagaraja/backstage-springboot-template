@@ -6,9 +6,12 @@ pipelines:
     lock_behavior: none
     display_order: -1
     environment_variables:
+      JAVA_HOME: /usr/local/Cellar/openjdk@17/17.0.5/
       DOCKER_USERNAME: sahanan05
+      SONARQUBE_HOST: http://localhost:9000
     secure_variables:
       DOCKER_PASSWORD: AES:vvMyhBhxE7L7/EfkI4v1zw==:ZdbN5qFnDPAbHToakPrmVg==
+      SONARQUBE_TOKEN: AES:wy8ImOpyLrCZCr5kVql05Q==:YKoSCyp3BmgGQOoY4S3t9ZPJ4lhYyhDp6XazvSJMM06tca7c1sKDT3003D+Nvitc
     materials:
       git-d1266c5:
         git: https://github.com/Sahana-Nagaraja/${{values.artifact_id}}
