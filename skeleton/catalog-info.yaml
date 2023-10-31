@@ -12,6 +12,7 @@ metadata:
     backstage.io/kubernetes-id: ${{values.artifact_id}}
     grafana/dashboard-selector: ${{values.artifact_id}}
     grafana/overview-dashboard: ${{values.grafana_dashboard_embed_url}}
+    sonarqube.org/project-key: ${{values.artifact_id}}
 spec:
   type: service
   providesApis:
