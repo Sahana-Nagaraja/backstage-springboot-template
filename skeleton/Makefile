@@ -24,7 +24,7 @@ sonar_scan:
     -Dsonar.projectKey=$(ARTIFACT_ID) \
     -Dsonar.projectName=$(ARTIFACT_ID) \
     -Dsonar.host.url=$(SONARQUBE_HOST) \
-    -Dsonar.token=S(SONARQUBE_TOKEN)
+    -Dsonar.token=$(SONARQUBE_TOKEN)
 
 delete:
 	kubectl delete -f deploy.yaml
