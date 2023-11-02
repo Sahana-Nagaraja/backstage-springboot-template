@@ -33,6 +33,31 @@ pipelines:
               tasks:
                 - exec:
                     arguments:
-                      - all
+                      - build
+                    command: make
+                    run_if: passed
+                - exec:
+                    arguments:
+                      - test
+                    command: make
+                    run_if: passed
+                - exec:
+                    arguments:
+                      - sonar_scan
+                    command: make
+                    run_if: passed
+                - exec:
+                    arguments:
+                      - dockerise
+                    command: make
+                    run_if: passed
+                - exec:
+                    arguments:
+                      - publish
+                    command: make
+                    run_if: passed
+                - exec:
+                    arguments:
+                      - deploy
                     command: make
                     run_if: passed

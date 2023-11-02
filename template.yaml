@@ -36,6 +36,10 @@ spec:
           title: Grafana Dashboard Embed URL
           type: string
           description: Grafana Dashboard URL to embed.
+        newrelic_dashboard_id:
+          title: Newrelic Dashboard ID
+          type: string
+          description: Newrelic Dashboard ID for the application.
         owner:
           title: Owner
           type: string
@@ -69,6 +73,7 @@ spec:
           description: ${{ parameters.description }}
           artifact_id: ${{ parameters.component_id }}
           grafana_dashboard_embed_url: ${{ parameters.grafana_dashboard_embed_url }}
+          newrelic_dashboard_id: ${{ parameters.newrelic_dashboard_id }}
           java_package_name: ${{ parameters.java_package_name }}
           owner: ${{ parameters.owner }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}

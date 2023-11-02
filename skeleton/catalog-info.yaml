@@ -13,6 +13,7 @@ metadata:
     grafana/dashboard-selector: ${{values.artifact_id}}
     grafana/overview-dashboard: ${{values.grafana_dashboard_embed_url}}
     sonarqube.org/project-key: ${{values.artifact_id}}
+    newrelic.com/dashboard-guid: ${{values.newrelic_dashboard_id}}
 spec:
   type: service
   providesApis:
